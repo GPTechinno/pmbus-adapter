@@ -1,0 +1,18 @@
+[package]
+name = "pmbus-adapter"
+version = "0.1.0"
+edition = "2024"
+rust-version = "1.85.1"
+description = "Async, no_std PMBus 1.4 protocol adapter built on embedded-hal-async I2C"
+license = "MIT OR Apache-2.0"
+repository = "https://github.com/GPTechinno/pmbus-adapter"
+documentation = "https://docs.rs/pmbus-adapter"
+readme = "README.md"
+keywords = ["pmbus", "smbus", "embedded", "i2c", "no-std"]
+categories = ["embedded", "no-std", "hardware-support"]
+
+[dependencies]
+bitflags = "2"
+embedded-hal-async = "1.0"
+heapless = "0.8"
+smbus-adapter = "0.1"
