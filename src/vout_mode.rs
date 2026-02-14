@@ -45,9 +45,7 @@ impl VoutMode {
     pub fn to_raw(self) -> u8 {
         let rel_bit = if self.relative { 0x80 } else { 0x00 };
         match self.mode {
-            VoutModeType::ULinear16 { exponent } => {
-                rel_bit | ((exponent as u8) & 0x1F)
-            }
+            VoutModeType::ULinear16 { exponent } => rel_bit | ((exponent as u8) & 0x1F),
             VoutModeType::Vid { code } => rel_bit | (0b01 << 5) | (code & 0x1F),
             VoutModeType::Direct => rel_bit | (0b10 << 5),
             VoutModeType::IeeeHalf => rel_bit | (0b11 << 5),
@@ -122,7 +120,11 @@ mod tests {
                 }
                 // Direct and IeeeHalf have reserved lower bits — only upper bits roundtrip
                 _ => {
-                    assert_eq!(mode.to_raw() & 0xE0, raw & 0xE0, "mode roundtrip failed for raw=0x{raw:02X}");
+                    assert_eq!(
+                        mode.to_raw() & 0xE0,
+                        raw & 0xE0,
+                        "mode roundtrip failed for raw=0x{raw:02X}"
+                    );
                 }
             }
         }

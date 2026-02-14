@@ -1,7 +1,6 @@
 /// Const lookup table for 10^R where R is in [-8, 8].
 const POW10: [f32; 17] = [
-    1e-8, 1e-7, 1e-6, 1e-5, 1e-4, 1e-3, 1e-2, 1e-1, 1.0, 1e1, 1e2, 1e3, 1e4, 1e5, 1e6, 1e7,
-    1e8,
+    1e-8, 1e-7, 1e-6, 1e-5, 1e-4, 1e-3, 1e-2, 1e-1, 1.0, 1e1, 1e2, 1e3, 1e4, 1e5, 1e6, 1e7, 1e8,
 ];
 
 /// Return 10^r for r in [-8, 8]. Returns `None` if out of range.
